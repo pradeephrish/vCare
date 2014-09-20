@@ -1,22 +1,21 @@
 package com.asu.vcare;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.PushService;
+
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
@@ -35,8 +34,13 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(this, "e0O1wPBh8qdsw5KhWhv5Xyc7D5gpv7gq9mGYosLh", "y8hOkkC4SfAegYxKMSN7eaZdHCNrYi1oW3rB2OY8");
         setContentView(R.layout.activity_main);
 
+        //Receive Push Notification
+        PushService.setDefaultPushCallback(this, MainActivity.class);
+        
+        
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -45,6 +49,12 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+       
+        
+        ParseObject testObject = new ParseObject("TestHello");
+        testObject.put("test", "hello");
+        testObject.saveInBackground();
+    
     }
 
     @Override
