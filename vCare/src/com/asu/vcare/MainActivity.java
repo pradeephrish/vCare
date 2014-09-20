@@ -1,8 +1,11 @@
 package com.asu.vcare;
 
+import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.PushService;
+import com.parse.ParseException;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -51,9 +54,34 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
        
         
-        ParseObject testObject = new ParseObject("TestHello");
+        /*ParseObject testObject = new ParseObject("TestHello");
         testObject.put("test", "hello");
-        testObject.saveInBackground();
+        testObject.saveInBackground();*/
+        
+        ParseObject gameScore = new ParseObject("GameScore");
+        gameScore.put("score", 1337);
+        gameScore.put("playerName", "Sean Plott");
+        gameScore.put("cheatMode", false);
+        gameScore.saveInBackground();
+        
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
+        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
+          public void done(ParseObject object, ParseException e) {
+            if (e == null) {
+              // object will be your game score
+
+            	//i can also udpate here
+            	System.out.println("Player Name is ");
+            	System.out.println(object.get("playerName"));
+            	
+            } else {
+              // something went wrong
+            	System.out.println("Something went wrong");
+            }
+          }
+        });
+        
+        
     
     }
 
