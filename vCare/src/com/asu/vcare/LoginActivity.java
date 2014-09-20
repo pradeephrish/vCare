@@ -1,6 +1,7 @@
 package com.asu.vcare;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +48,8 @@ public class LoginActivity extends ActionBarActivity {
 		
 		@Override
 		public void onClick(View v) {
-			
+			Intent i = new Intent(LoginActivity.this, MainActivity.class);
+			startActivity(i);
 			
 		}
 	};

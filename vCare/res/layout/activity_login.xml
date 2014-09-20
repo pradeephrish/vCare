@@ -18,45 +18,42 @@
         android:text="Have an Account?"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/txtMobileNo"
+    <Button
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginRight="14dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="Mobile Number"
-        android:inputType="phone" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_below="@+id/txtMobileNo"
+        android:layout_centerHorizontal="true"
+        android:text="Login" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtMobileNo"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
+        android:layout_marginBottom="81dp"
         android:text="Register" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
         android:text="OR"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/txtMobileNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtMobileNo"
-        android:layout_toRightOf="@+id/txtMobileNo"
-        android:text="Login" />
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Mobile Number"
+        android:inputType="phone" />
 
 </RelativeLayout>
