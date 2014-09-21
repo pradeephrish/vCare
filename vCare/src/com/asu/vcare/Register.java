@@ -37,7 +37,7 @@ public class Register extends Activity{
 View.OnClickListener Register = new View.OnClickListener() {
 	@Override
 	public void onClick(View v) {
-	Intent in = new Intent(Register.this, MainActivity.class);
+	Intent in = new Intent(Register.this, CreateOrganization.class);
 	startActivity(in);
 	}
 };
