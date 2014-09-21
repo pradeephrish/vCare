@@ -15,5 +15,10 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="section_share">Share</string>
     <string name="section_challenge">Challenge</string>
+    <string name="title_activity_event_details">EventDetails</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

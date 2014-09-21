@@ -11,13 +11,162 @@
          space available using match_parent in both dimensions.
     -->
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:weightSum="1"
+            android:id="@+id/linearLayout"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-    </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Respect"
+                android:id="@+id/textView"
+                android:padding="8dp"
+                android:layout_weight="1.40"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Kindness"
+                android:id="@+id/textView2"
+                android:padding="8dp"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Self Reflection"
+                android:id="@+id/textView3"
+                android:padding="8dp"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Compassion"
+                android:id="@+id/textView4"
+                android:padding="8dp"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:weightSum="1"
+            android:id="@+id/linearLayout2">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageButton"
+                android:layout_weight="0.20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Hi, Name"
+                android:id="@+id/txtName"
+                android:layout_weight="0.20" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgRespect"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgKind"
+            android:layout_below="@+id/linearLayout"
+            android:layout_toRightOf="@+id/imgRespect"
+            android:layout_toEndOf="@+id/imgRespect"
+            android:layout_marginLeft="20dp"
+            android:src="@android:color/background_dark" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgComp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:src="@android:color/background_dark" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgSR"
+            android:layout_toStartOf="@+id/imgComp"
+            android:src="@android:color/background_dark"
+            android:layout_above="@+id/scrollView"
+            android:layout_toLeftOf="@+id/imgComp" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:id="@+id/scrollView"
+            android:layout_below="@+id/imgRespect"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="36dp"
+            android:layout_above="@+id/linearLayout3">
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView" />
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout3">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button"
+                android:layout_alignBottom="@+id/linearLayout3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <!--
          android:layout_gravity="start" tells DrawerLayout to treat

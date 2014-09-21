@@ -1,11 +1,5 @@
 package com.asu.vcare;
 
-import com.parse.GetCallback;
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.PushService;
-import com.parse.ParseException;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,11 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.asu.dao.DAOManager;
+import com.parse.PushService;
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+	
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -33,7 +32,8 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    private ListView listView;
+    private DAOManager dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,11 +62,20 @@ public class MainActivity extends ActionBarActivity
         gameScore.put("playerName", "Sean Plott");
         gameScore.put("cheatMode", false);
         gameScore.saveInBackground();*/
+        String lv_arr[]={"Android","iPhone","BlackBerry","AndroidPeople"};
         
-        
-        
-        
-    
+        String[] values = new String[] { "Android List View", 
+                "Adapter implementation",
+                "Simple List View In Android",
+                "Create List View Android", 
+                "Android Example", 
+                "List View Source Code", 
+                "List View Array Adapter", 
+                "Android Example List View" 
+               };
+        listView = (ListView)findViewById(R.id.listView);
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values));
+
     }
 
     @Override
