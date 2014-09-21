@@ -42,15 +42,25 @@ View.OnClickListener Register = new View.OnClickListener() {
 	@Override
 	public void onClick(View v) {
 		String name=txtName.getText().toString();
-		name=(name==null)?" John":name;
-		System.out.println(name);
+		//name=(name==null)?" John":name;
+		//System.out.println(name);
 		String mobNumber = txtMobNumber.getText().toString();
-		mobNumber=(mobNumber==null)?"1":mobNumber;
+		//mobNumber=(mobNumber==null)?"1":mobNumber;
 		String email = txtEmail.getText().toString();
-		email=(email==null)?"john@asu.edu":email;
+		//email=(email==null)?"john@asu.edu":email;
 		String zip = txtZip.getText().toString();
-		zip=(zip==null)?"85281":zip;
-		
+	//	zip=(zip==null)?"85281":zip;
+		if(name.isEmpty()|| mobNumber.isEmpty() || email.isEmpty()||zip.isEmpty())
+		{
+			try {
+				Utils.showDialog("Enter all necessary fields", Register.this);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
 		User user = new User();
 		user.setName(name);
 		user.setMobileNumber(mobNumber);
@@ -60,10 +70,9 @@ View.OnClickListener Register = new View.OnClickListener() {
 		user.setBadgeSelfReflection(0);
 		user.setEmailID(email);
 		user.setZipCode(zip);
-	
 		User users[] = {user};
 		new UserRegistration(Register.this).execute(users);
-		
+		}		
 	}
 };
 }
