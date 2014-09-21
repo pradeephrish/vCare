@@ -23,6 +23,7 @@ public class LoginActivity extends ActionBarActivity {
 	private Button btnLogin, btnRegister;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(R.style.loginTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		ActionBar actionBar = getActionBar();

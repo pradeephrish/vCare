@@ -1,5 +1,7 @@
 package com.asu.vcare;
 
+import java.util.Date;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,13 +12,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.EditText;
 import android.widget.Spinner;
+import com.asu.models.Events;
+import com.asu.dao.DAOManager;
 
 public class CreateOrganization extends Activity {
 	private EditText txtAddress; 
 	private Button btnCreate;
 	private Spinner spinner;
+	private Date selectedDate;
     private static final String[]paths = {"Select an Organisation","Teach for America", "Kids of America", "Whole Life Foundation","Central AZ Shelter Services"};
 	
 	@Override
@@ -29,9 +36,15 @@ public class CreateOrganization extends Activity {
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 		
 		spinner = (Spinner)findViewById(R.id.spinner1);
+		selectedDate = new Date();
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(CreateOrganization.this,
                 android.R.layout.simple_spinner_item,paths);
+        CalendarView myCalendar = (CalendarView) findViewById(R.id.calendarView1);
 
+        myCalendar.setOnDateChangeListener(myCalendarListener);
+
+       
+        
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -70,6 +83,18 @@ public class CreateOrganization extends Activity {
 	View.OnClickListener Create = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
+		Events event = new Events();
+		event.setAddress(((EditText)findViewById(R.id.address)).getText().toString());
+		event.setEventDescription(((EditText)findViewById(R.id.desc)).getText().toString());
+		event.setEventName(((EditText)findViewById(R.id.eventname)).getText().toString());
+		event.setOrganizationID(((Spinner)findViewById(R.id.spinner1)).getSelectedItem().toString());
+		event.setOrganizerID("0");
+		CalendarView cv = (CalendarView)findViewById(R.id.calendarView1);
+		
+		event.setStartDate(selectedDate);
+		event.setEndDate(selectedDate);
+		
+		new DAOManager().createEvent(event, "0");
 		Intent in = new Intent(CreateOrganization.this, MainActivity.class);
 		startActivity(in);
 		}
@@ -95,4 +120,16 @@ public class CreateOrganization extends Activity {
 		// TODO Auto-generated method stub
 		
 	}*/
+
+	 OnDateChangeListener myCalendarListener = new OnDateChangeListener(){
+
+	        public void onSelectedDayChange(CalendarView view, int year, int month, int day){
+
+	           // add one because month starts at 0
+	           month = month + 1;
+	           // output to log cat **not sure how to format year to two places here**
+	           selectedDate = new Date(year,month,day);
+	        }
+	   };
+
 }
