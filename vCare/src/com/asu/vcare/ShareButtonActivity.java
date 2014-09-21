@@ -87,7 +87,7 @@ public class ShareButtonActivity extends Activity {
 
 		// Create Your Own Share Button
 		Button share = (Button) findViewById(R.id.sharebutton);
-		share.setText("Share");
+		//share.setText("Share");
 		//share.setTextColor(Color.WHITE);
 		//share.setBackgroundResource(R.drawable.button_gradient);
 
@@ -123,19 +123,13 @@ public class ShareButtonActivity extends Activity {
 			Log.d("ShareButton", "Provider Name = " + providerName);
 			Toast.makeText(ShareButtonActivity.this, "Posted sucessfully to Facebook", Toast.LENGTH_LONG).show();
 
-			update = (Button) findViewById(R.id.update);
+			
 			edit = (EditText) findViewById(R.id.editTxt);
 			
 			// Please avoid sending duplicate message. Social Media Providers
 			// block duplicate messages.
 
-			update.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					adapter.updateStatus(edit.getText().toString(), new MessageListener(), false);
-				}
-			});
+			
 
 			// Share via Email Intent
 		/*	if (providerName.equalsIgnoreCase("share_mail")) {
