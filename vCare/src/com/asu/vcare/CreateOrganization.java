@@ -1,7 +1,9 @@
 package com.asu.vcare;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +24,11 @@ public class CreateOrganization extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_event);
+		ActionBar actionBar = getActionBar();
+		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+		
 		spinner = (Spinner)findViewById(R.id.spinner1);
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(CreateOrganization.this,
                 android.R.layout.simple_spinner_item,paths);
