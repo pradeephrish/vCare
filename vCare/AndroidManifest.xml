@@ -18,7 +18,7 @@
 
     <!--
   IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
-  to match your app's package name + ".permission.C2D_MESSAGE".
+  to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
         android:name="com.asu.vcare.permission.C2D_MESSAGE"
@@ -34,21 +34,21 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-           
         </activity>
-		<activity
+        <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
-           
         </activity>
         <activity
             android:name=".Register"
-            android:label="@string/app_name" >        
+            android:label="@string/app_name" >
         </activity>
+
         <activity
             android:name=".CreateOrganization"
             android:label="@string/app_name" >        
         </activity>
+
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
@@ -69,15 +69,18 @@
             </intent-filter>
         </receiver>
 
-        
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name" >
-             <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".EventDetails"
+            android:label="@string/title_activity_event_details" >
         </activity>
     </application>
 

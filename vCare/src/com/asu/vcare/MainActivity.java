@@ -1,29 +1,32 @@
 package com.asu.vcare;
 
-import com.parse.GetCallback;
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.PushService;
-import com.parse.ParseException;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
+import android.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.asu.dao.DAOManager;
+import com.parse.PushService;
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+	
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -33,12 +36,16 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    private ListView listView;
+    private DAOManager dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ActionBar actionBar = getActionBar();
+        		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#99CCFF")));
+        		
+        		actionBar.setLogo(R.drawable.ic_launcher);
         //Receive Push Notification
         PushService.setDefaultPushCallback(this, MainActivity.class);
         
@@ -62,11 +69,20 @@ public class MainActivity extends ActionBarActivity
         gameScore.put("playerName", "Sean Plott");
         gameScore.put("cheatMode", false);
         gameScore.saveInBackground();*/
-        
-        
-        
-        
-    
+        String lv_arr[]={"Android","iPhone","BlackBerry","AndroidPeople"};
+        //dao.getInstance().getUserDetails(userID);
+        String[] values = new String[] { "Android List View", 
+                "Adapter implementation",
+                "Simple List View In Android",
+                "Create List View Android", 
+                "Android Example", 
+                "List View Source Code", 
+                "List View Array Adapter", 
+                "Android Example List View" 
+               };
+        listView = (ListView)findViewById(R.id.listView);
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values));
+
     }
 
     @Override
@@ -98,13 +114,6 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-    public void restoreActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,7 +122,7 @@ public class MainActivity extends ActionBarActivity
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.main, menu);
-            restoreActionBar();
+       
             return true;
         }
         return super.onCreateOptionsMenu(menu);
