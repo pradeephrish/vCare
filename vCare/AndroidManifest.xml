@@ -33,20 +33,25 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Register"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".CreateOrganization"
-            android:label="@string/app_name" >        
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">        
         </activity>
 
         <service android:name="com.parse.PushService" />
@@ -71,16 +76,19 @@
 
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".EventDetails"
-            android:label="@string/title_activity_event_details" >
+            android:label="@string/title_activity_event_details" 
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

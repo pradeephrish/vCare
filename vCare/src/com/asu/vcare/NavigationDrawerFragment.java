@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -291,9 +292,12 @@ public class NavigationDrawerFragment extends Fragment {
 	 */
 	private void showGlobalContextActionBar() {
 		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setTitle(R.string.app_name);
+		/*actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);*/
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+
+		//actionBar.setTitle(R.string.app_name);
 	}
 
 	private ActionBar getActionBar() {
