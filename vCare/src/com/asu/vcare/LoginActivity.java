@@ -37,7 +37,7 @@ public class LoginActivity extends ActionBarActivity {
 		btnRegister.setOnClickListener(register);
 		
 		
-		User user = new User();
+		/*User user = new User();
 		user.setBadgeCompassion(0);
 		user.setBadgeKindness(0);
 		user.setBadgeRespect(0);
@@ -46,11 +46,8 @@ public class LoginActivity extends ActionBarActivity {
 		user.setMobileNumber("0");
 		user.setName("Jon");
 		user.setZipCode("85281");
-		
-		
-		new DAOManager().registerUser(user);
-		
-		
+		new DAOManager().registerUser(user);*/
+	
 	}
 
 	@Override

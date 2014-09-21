@@ -1,5 +1,7 @@
 package com.asu.vcare;
 
+import com.asu.dao.LoginAsyncTask;
+import com.asu.dao.UserRegistration;
 import com.asu.models.User;
 
 import android.app.ActionBar;
@@ -58,11 +60,10 @@ View.OnClickListener Register = new View.OnClickListener() {
 		user.setBadgeSelfReflection(0);
 		user.setEmailID(email);
 		user.setZipCode(zip);
+	
+		User users[] = {user};
+		new UserRegistration(Register.this).execute(users);
 		
-		
-		
-		Intent in = new Intent(Register.this, CreateOrganization.class);
-		startActivity(in);
 	}
 };
 }
