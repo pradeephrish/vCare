@@ -1,5 +1,6 @@
 package com.asu.vcare;
 
+import java.util.Currency;
 import java.util.Date;
 
 import android.app.ActionBar;
@@ -17,6 +18,8 @@ import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.asu.models.Events;
+import com.asu.models.User;
+import com.asu.session.CurrentSession;
 import com.asu.dao.DAOManager;
 
 public class CreateOrganization extends Activity {
@@ -24,8 +27,11 @@ public class CreateOrganization extends Activity {
 	private Button btnCreate;
 	private Spinner spinner;
 	private Date selectedDate;
+
     private static final String[]paths = {"Select an Organisation","Teach for America", "Kids of America", "Whole Life Foundation","Central AZ Shelter Services"};
-	
+
+   
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +40,13 @@ public class CreateOrganization extends Activity {
 		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+	
 		
+		//get current user details
+		User user = CurrentSession.getUser();
+		((EditText) findViewById(R.id.fullname)).setText(user.getName());
+		((EditText) findViewById(R.id.phonenumb)).setText(user.getMobileNumber());
+		((EditText) findViewById(R.id.mailid)).setText(user.getEmailID());
 		spinner = (Spinner)findViewById(R.id.spinner1);
 		selectedDate = new Date();
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(CreateOrganization.this,
@@ -42,8 +54,6 @@ public class CreateOrganization extends Activity {
         CalendarView myCalendar = (CalendarView) findViewById(R.id.calendarView1);
 
         myCalendar.setOnDateChangeListener(myCalendarListener);
-
-       
         
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -74,7 +84,6 @@ public class CreateOrganization extends Activity {
 			}
         	
 		});     
-		
 		txtAddress = (EditText) findViewById(R.id.address);
 		btnCreate = (Button) findViewById(R.id.CreateEvent);
 		btnCreate.setOnClickListener(Create);	
