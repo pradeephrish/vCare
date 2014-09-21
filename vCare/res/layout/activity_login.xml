@@ -43,21 +43,23 @@
     </EditText>
 
     <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnLogin"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/rounded"
+        android:text="Register" />
+
+    <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtMobileNo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/rounded"
         android:text="Login" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Register" />
 
 </RelativeLayout>
