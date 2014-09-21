@@ -231,6 +231,14 @@ public class NavigationDrawerFragment extends Fragment {
 			Intent i = new Intent(getActivity(), EventList.class);
 			startActivity(i);
 		}
+		if(mCurrentSelectedPosition == 2){
+			Intent i = new Intent(getActivity(), CreateOrganization.class);
+			startActivity(i);
+		}
+		if(mCurrentSelectedPosition == 3){
+			Intent i = new Intent(getActivity(), EventList.class);
+			startActivity(i);
+		}
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.asu.dao.DAOManager;
@@ -68,8 +70,18 @@ public class MainActivity extends ActionBarActivity
         /*ParseObject testObject = new ParseObject("TestHello");
         testObject.put("test", "hello");
         testObject.saveInBackground();*/
+        Button orgBtn =(Button)findViewById(R.id.btnOrganize);
+        orgBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 Intent i = new Intent(MainActivity.this, CreateOrganization.class);
+				 startActivity(i);
+			}
+		});
        
-          
+		
         List<Events> events = new DAOManager().get("0");
 		String datum[] = new String[events.size()];
 		String desc[] = new String[events.size()];
