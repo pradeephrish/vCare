@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.asu.dao.DAOManager;
 import com.asu.models.Events;
@@ -43,11 +44,16 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     private ListView listView;
     private DAOManager dao;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        	
+       String name =  getIntent().getExtras().getString("name");
+       TextView textView = (TextView) findViewById(R.id.txtName); 
+       textView.setText("Hi, "+name);
+        
 	ActionBar actionBar = getActionBar();
 	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
 	actionBar.setDisplayShowTitleEnabled(false);

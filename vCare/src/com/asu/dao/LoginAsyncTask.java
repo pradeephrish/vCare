@@ -2,22 +2,18 @@ package com.asu.dao;
 
 import java.util.List;
 
-import com.asu.models.User;
-import com.asu.vcare.CreateOrganization;
-import com.asu.vcare.LoginActivity;
-import com.asu.vcare.MainActivity;
-import com.asu.vcare.Register;
-import com.asu.vcare.Utils;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.sax.StartElementListener;
 import android.util.Log;
+
+import com.asu.models.User;
+import com.asu.vcare.MainActivity;
+import com.asu.vcare.Utils;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 public class LoginAsyncTask extends AsyncTask<String, Void, User> {
 	private Context context;
@@ -84,7 +80,7 @@ public class LoginAsyncTask extends AsyncTask<String, Void, User> {
 			}
 		} else {
 			Intent in = new Intent(context, MainActivity.class);
-			in.putExtra("username", result.getName());
+			in.putExtra("name", result.getName());
 			in.putExtra("phone", result.getMobileNumber());
 			context.startActivity(in);
 			//startActivity();

@@ -3,55 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner1"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="Address of the Event"
-        android:inputType="textMultiLine" />
-
-    <EditText
-        android:id="@+id/phonenumb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/fullname"
-        android:layout_below="@+id/fullname"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Contact Number"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/mailid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/phonenumb"
-        android:layout_below="@+id/phonenumb"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Email ID"
-        android:inputType="textEmailAddress" />
-
-    
-
-    <EditText
-        android:id="@+id/fullname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/address"
-        android:layout_below="@+id/address"
-        android:layout_marginTop="26dp"
-        android:ems="10"
-        android:hint="Full Name"
-        android:inputType="textPersonName" >
-
-        <requestFocus android:layout_width="wrap_content" />
-
-    </EditText>
-
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="wrap_content"
@@ -70,13 +21,76 @@
         android:layout_below="@+id/mailid"
         android:calendarViewShown="false" />
 
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Address of the Event"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/address"
+        android:layout_below="@+id/address"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/eventname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fullname"
+        android:layout_below="@+id/fullname"
+        android:ems="10"
+        android:hint="Event Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/eventdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/eventname"
+        android:layout_below="@+id/eventname"
+        android:ems="10"
+        android:hint="Event Description"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/phonenumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/eventdesc"
+        android:layout_below="@+id/eventdesc"
+        android:ems="10"
+        android:hint="Contact Number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/mailid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/phonenumb"
+        android:layout_below="@+id/phonenumb"
+        android:ems="10"
+        android:hint="Email ID"
+        android:inputType="textEmailAddress" />
+
     <Button
         android:id="@+id/CreateEvent"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/rounded"
         android:text="Create Event" />
    

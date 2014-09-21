@@ -2,7 +2,9 @@ package com.asu.vcare;
 
 
 
+import com.asu.dao.DAOManager;
 import com.asu.dao.LoginAsyncTask;
+import com.asu.models.User;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -33,6 +35,19 @@ public class LoginActivity extends ActionBarActivity {
 		
 		btnRegister = (Button)findViewById(R.id.btnRegister);
 		btnRegister.setOnClickListener(register);
+		
+		
+		/*User user = new User();
+		user.setBadgeCompassion(0);
+		user.setBadgeKindness(0);
+		user.setBadgeRespect(0);
+		user.setBadgeSelfReflection(0);
+		user.setEmailID("a@a.com");
+		user.setMobileNumber("0");
+		user.setName("Jon");
+		user.setZipCode("85281");
+		new DAOManager().registerUser(user);*/
+	
 	}
 
 	@Override

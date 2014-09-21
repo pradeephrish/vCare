@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/chkNotifiy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.47"
+        android:checked="true"
+        android:text="Enable notifications from vCare" />
+
+</LinearLayout>

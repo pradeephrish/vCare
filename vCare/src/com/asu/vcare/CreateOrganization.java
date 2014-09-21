@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-
 public class CreateOrganization extends Activity {
 	private EditText txtAddress; 
 	private Button btnCreate;
