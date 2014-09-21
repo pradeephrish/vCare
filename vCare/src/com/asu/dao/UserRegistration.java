@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 
 public class UserRegistration extends AsyncTask<User, Integer, Integer>{
-
+	
+	
 	@Override
 	protected Integer doInBackground(User... users) {
+		
 		/*
 		users.get
 		// TODO Auto-generated method stub

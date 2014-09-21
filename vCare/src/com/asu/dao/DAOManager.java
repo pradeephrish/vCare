@@ -153,7 +153,7 @@ public class DAOManager {
 	
 	public User registerUser(User user){
 		ParseObject gameScore = new ParseObject("UserStore");
-        gameScore.put("score", user.getMobileNumber());
+        gameScore.put("mobileNumber", user.getMobileNumber());
         gameScore.put("zipCode", user.getZipCode());
         gameScore.put("name", user.getName());
         gameScore.put("emailID", user.getEmailID());
