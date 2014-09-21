@@ -1,7 +1,10 @@
 package com.asu.vcare;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -17,6 +20,11 @@ public class Register extends Activity{
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_register);
+			ActionBar actionBar = getActionBar();
+    		//actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#99CCFF")));
+    		actionBar.setBackgroundDrawable(R.drawable.Banner);
+    		
+    		actionBar.setLogo(R.drawable.ic_launcher);
 			txtName = (EditText) findViewById(R.id.fname);
 			txtMobNumber = (EditText) findViewById(R.id.phone);
 			txtEmail = (EditText) findViewById(R.id.email);
