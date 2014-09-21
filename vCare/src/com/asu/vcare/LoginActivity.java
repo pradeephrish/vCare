@@ -2,7 +2,10 @@ package com.asu.vcare;
 
 
 
+import com.asu.dao.LoginAsyncTask;
+
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -53,9 +56,20 @@ public class LoginActivity extends ActionBarActivity {
 		
 		@Override
 		public void onClick(View v) {
-			Intent i = new Intent(LoginActivity.this, MainActivity.class);
-			startActivity(i);
-			
+			/*Intent i = new Intent(LoginActivity.this, MainActivity.class);
+			startActivity(i);*/
+			String loginID = txtMobile.getText().toString();
+			if(loginID!=null && loginID.length()>0){
+				String inputs[] = {loginID};
+				new LoginAsyncTask(LoginActivity.this).execute(inputs);
+			}else{
+				/*try {
+					//Utils.showDialog("Invalid User !", getApplicationContext());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+			}
 		}
 	};
 	
@@ -65,7 +79,6 @@ public class LoginActivity extends ActionBarActivity {
 		public void onClick(View v) {
 			Intent i = new Intent(LoginActivity.this, Register.class);
 			startActivity(i);
-			
 		}
 	};
 }

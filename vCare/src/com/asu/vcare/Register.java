@@ -1,5 +1,7 @@
 package com.asu.vcare;
 
+import com.asu.models.User;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -37,8 +39,30 @@ public class Register extends Activity{
 View.OnClickListener Register = new View.OnClickListener() {
 	@Override
 	public void onClick(View v) {
-	Intent in = new Intent(Register.this, CreateOrganization.class);
-	startActivity(in);
+		String name=txtName.getText().toString();
+		name=(name==null)?" John":name;
+		System.out.println(name);
+		String mobNumber = txtMobNumber.getText().toString();
+		mobNumber=(mobNumber==null)?"1":mobNumber;
+		String email = txtEmail.getText().toString();
+		email=(email==null)?"john@asu.edu":email;
+		String zip = txtZip.getText().toString();
+		zip=(zip==null)?"85281":zip;
+		
+		User user = new User();
+		user.setName(name);
+		user.setMobileNumber(mobNumber);
+		user.setBadgeCompassion(0);
+		user.setBadgeKindness(0);
+		user.setBadgeRespect(0);
+		user.setBadgeSelfReflection(0);
+		user.setEmailID(email);
+		user.setZipCode(zip);
+		
+		
+		
+		Intent in = new Intent(Register.this, CreateOrganization.class);
+		startActivity(in);
 	}
 };
 }
