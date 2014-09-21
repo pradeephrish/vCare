@@ -1,6 +1,7 @@
 package com.asu.vcare;
 
 import com.parse.Parse;
+import com.parse.PushService;
 
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
@@ -35,7 +36,7 @@ public class SplashActivity extends ActionBarActivity {
             }
         };
         loadingThread.start();
-		
+		PushService.subscribe(SplashActivity.this, "vcare", LoginActivity.class);
 	}
 
 	@Override

@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.asu.dao.DAOManager;
+import com.asu.dao.EventFetchAsyncTask;
 import com.asu.models.Events;
 import com.asu.session.CurrentSession;
 import com.parse.PushService;
@@ -89,25 +90,23 @@ public class MainActivity extends ActionBarActivity
 		});
        
 		
-        List<Events> events = new DAOManager().get(CurrentSession.getUser().getMobileNumber());
-		String datum[] = new String[events.size()];
-		String desc[] = new String[events.size()];
-		Integer evtImage [] = new Integer[events.size()];
-		for(int i=0; i<events.size();i++){
-			
-			Events event = events.get(i);
-			datum[i] = event.getEventName();
-			desc[i] = event.getEventDescription();
-			evtImage[i] = R.drawable.event;			   	    
-						
-		}
+        //List<Events> events = new DAOManager().get(CurrentSession.getUser().getMobileNumber());
+        
+        //get user specific results
+        new EventFetchAsyncTask(MainActivity.this,listView).execute(CurrentSession.getUser().getMobileNumber());
+        
 		
-		CustomList adapter = new CustomList(this, datum, desc, evtImage);
-		listView = (ListView)findViewById(R.id.listView);
-		listView.setAdapter(adapter);
 
     }
 
+    @Override
+    protected void onResume() {
+    	// TODO Auto-generated method stub
+    	super.onResume();
+    	new EventFetchAsyncTask(MainActivity.this,listView).execute(CurrentSession.getUser().getMobileNumber());
+     
+    }
+    
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments

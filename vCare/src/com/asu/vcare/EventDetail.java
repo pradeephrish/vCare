@@ -31,7 +31,14 @@ public class EventDetail extends Activity {
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 		
 		
-		List<Events> events = CurrentSession.getListOfEvens();
+		List<Events> events = null;
+		if(CurrentSession.isMyflag()){
+			events = CurrentSession.getListOfAllEvents();
+		}else
+		{
+			events = CurrentSession.getListOfMyEvents();
+		}
+		CurrentSession.getListOfAllEvents();
 		Bundle bundle = getIntent().getExtras();
 		int pos = Integer.parseInt(bundle.get("pos").toString());
 		

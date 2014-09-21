@@ -5,6 +5,8 @@ package com.asu.vcare;
 import com.asu.dao.DAOManager;
 import com.asu.dao.LoginAsyncTask;
 import com.asu.models.User;
+import com.parse.LogInCallback;
+import com.parse.PushService;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -87,6 +89,9 @@ public class LoginActivity extends ActionBarActivity {
 				}*/
 			}
 		}
+		
+		
+		
 	};
 	
 	View.OnClickListener register = new View.OnClickListener() {

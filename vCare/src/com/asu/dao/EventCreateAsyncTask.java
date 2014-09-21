@@ -9,13 +9,16 @@ import com.asu.models.Event;
 import com.asu.models.Events;
 import com.asu.vcare.Event_Success;
 import com.asu.vcare.LoginActivity;
+import com.asu.vcare.MainActivity;
 import com.asu.vcare.Utils;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 
 public class EventCreateAsyncTask  extends AsyncTask<Events, Void, Boolean>{
 	
 	private Context context;
 	private ProgressDialog pdia;
+	private Events event;
 
 	public EventCreateAsyncTask(Context context) {
 		this.context = context;
@@ -32,7 +35,7 @@ public class EventCreateAsyncTask  extends AsyncTask<Events, Void, Boolean>{
 	@Override
 	protected Boolean doInBackground(Events... params) {
 		// TODO Auto-generated method stub
-		Events event = params[0];
+		event = params[0];
 		ParseObject orgStore = new ParseObject("EventStore");
         orgStore.put("address", event.getAddress()); 
         orgStore.put("startDate", event.getStartDate());
@@ -53,6 +56,14 @@ public class EventCreateAsyncTask  extends AsyncTask<Events, Void, Boolean>{
 		super.onPostExecute(result);
 		try {
 			Utils.showDialog("Event Registered ", context);
+				
+			/*send push notification*/
+			
+			ParsePush push = new ParsePush();
+			push.setChannel("vcare");
+			push.setMessage("Humanity Event :"+event.getEventName()+" at "+event.getAddress());
+			push.sendInBackground();
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

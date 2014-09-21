@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+
 import com.asu.models.Events;
 import com.asu.session.CurrentSession;
+import com.asu.vcare.CustomList;
 
 public class EventList extends Activity {
 
@@ -27,7 +29,7 @@ public class EventList extends Activity {
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 		
-		List<Events> events = CurrentSession.getListOfEvens();
+		List<Events> events = CurrentSession.getListOfAllEvents();
 		String datum[] = new String[events.size()];
 		String desc[] = new String[events.size()];
 		Integer evtImage [] = new Integer[events.size()];

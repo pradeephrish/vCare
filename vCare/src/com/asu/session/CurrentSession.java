@@ -6,17 +6,13 @@ import com.asu.models.Events;
 import com.asu.models.User;
 
 public class CurrentSession {
-	private static List<Events> listOfEvens;
+	private static List<Events> listOfAllEvents;
+	private static List<Events> listOfMyEvents;
+	
 	private static String currentUserID; //mobile number
 	private static User user;
-
-	public static List<Events> getListOfEvens() {
-		return listOfEvens;
-	}
-
-	public static void setListOfEvens(List<Events> listOfEvens) {
-		CurrentSession.listOfEvens = listOfEvens;
-	}
+	private static boolean myflag = false;
+	
 
 	public static String getCurrentUserID() {
 		return currentUserID;
@@ -32,5 +28,29 @@ public class CurrentSession {
 
 	public static void setUser(User user) {
 		CurrentSession.user = user;
+	}
+
+	public static List<Events> getListOfAllEvents() {
+		return listOfAllEvents;
+	}
+
+	public static void setListOfAllEvents(List<Events> listOfAllEvents) {
+		CurrentSession.listOfAllEvents = listOfAllEvents;
+	}
+
+	public static List<Events> getListOfMyEvents() {
+		return listOfMyEvents;
+	}
+
+	public static void setListOfMyEvents(List<Events> listOfMyEvents) {
+		CurrentSession.listOfMyEvents = listOfMyEvents;
+	}
+
+	public static boolean isMyflag() {
+		return myflag;
+	}
+
+	public static void setMyflag(boolean myflag) {
+		CurrentSession.myflag = myflag;
 	}
 }

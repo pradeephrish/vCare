@@ -22,6 +22,12 @@ import com.asu.models.Events;
 import com.asu.models.User;
 import com.asu.session.CurrentSession;
 import com.asu.dao.DAOManager;
+import com.asu.dao.EventCreateAsyncTask;
+
+
+/*
+ * This class actually creates Event associated with Organization
+ */
 
 public class CreateOrganization extends Activity {
 	private EditText txtAddress; 
@@ -106,9 +112,12 @@ public class CreateOrganization extends Activity {
 		event.setStartDate(selectedDate);
 		event.setEndDate(selectedDate);
 		
-		new DAOManager().createEvent(event, CurrentSession.getUser().getMobileNumber());
-		Intent in = new Intent(CreateOrganization.this, MainActivity.class);
-		startActivity(in);
+		
+		new EventCreateAsyncTask(CreateOrganization.this).execute(event);
+		
+		//new DAOManager().createEvent(event, CurrentSession.getUser().getMobileNumber());
+		//Intent in = new Intent(CreateOrganization.this, MainActivity.class);
+		//startActivity(in);
 		}
 	};
 	

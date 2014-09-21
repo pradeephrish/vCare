@@ -231,7 +231,7 @@ public class NavigationDrawerFragment extends Fragment {
 		}
 		if(mCurrentSelectedPosition == 1){
 			String userID = null; //null for all the events
-			new EventFetchAsyncTask(getActivity()).execute(userID);
+			new EventFetchAsyncTask(getActivity(),null).execute(userID);
 		}
 		if(mCurrentSelectedPosition == 2){
 			Intent i = new Intent(getActivity(), CreateOrganization.class);
