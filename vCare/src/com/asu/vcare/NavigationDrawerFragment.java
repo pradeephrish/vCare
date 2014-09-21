@@ -1,5 +1,8 @@
 package com.asu.vcare;
 
+import com.asu.dao.EventFetchAsyncTask;
+import com.asu.session.CurrentSession;
+
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -226,26 +229,17 @@ public class NavigationDrawerFragment extends Fragment {
 		if (mCallbacks != null) {
 			mCallbacks.onNavigationDrawerItemSelected(position);
 		}
-		
 		if(mCurrentSelectedPosition == 1){
-			Intent i = new Intent(getActivity(), EventList.class);
-			startActivity(i);
+			String userID = CurrentSession.getUser().getMobileNumber();
+			new EventFetchAsyncTask(getActivity()).execute(userID);
 		}
 		if(mCurrentSelectedPosition == 2){
 			Intent i = new Intent(getActivity(), CreateOrganization.class);
 			startActivity(i);
 		}
 		if(mCurrentSelectedPosition == 3){
-			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
-			startActivity(i);
-		}
-		if(mCurrentSelectedPosition == 4){
-			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
-			startActivity(i);
-		}
-		if(mCurrentSelectedPosition == 5){
-			Intent i = new Intent(getActivity(), Settings.class);
-			startActivity(i);
+			/*Intent i = new Intent(getActivity(), EventList.class);
+			startActivity(i);*/
 		}
 	}
 

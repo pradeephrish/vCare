@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.asu.models.User;
+import com.asu.session.CurrentSession;
 import com.asu.vcare.MainActivity;
 import com.asu.vcare.Utils;
 import com.parse.ParseException;
@@ -80,6 +81,7 @@ public class LoginAsyncTask extends AsyncTask<String, Void, User> {
 			}
 		} else {
 			Intent in = new Intent(context, MainActivity.class);
+			CurrentSession.setUser(result);
 			in.putExtra("name", result.getName());
 			in.putExtra("phone", result.getMobileNumber());
 			context.startActivity(in);
