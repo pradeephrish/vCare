@@ -1,6 +1,8 @@
 package com.asu.vcare;
 
 
+import java.util.List;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -21,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.asu.dao.DAOManager;
+import com.asu.models.Events;
 import com.parse.PushService;
 
 
@@ -67,19 +70,22 @@ public class MainActivity extends ActionBarActivity
         testObject.saveInBackground();*/
        
           
-        String lv_arr[]={"Android","iPhone","BlackBerry","AndroidPeople"};
-        //dao.getInstance().getUserDetails(userID);
-        String[] values = new String[] { "Android List View", 
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android", 
-                "Android Example", 
-                "List View Source Code", 
-                "List View Array Adapter", 
-                "Android Example List View" 
-               };
-        listView = (ListView)findViewById(R.id.listView);
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values));
+        List<Events> events = new DAOManager().get("0");
+		String datum[] = new String[events.size()];
+		String desc[] = new String[events.size()];
+		Integer evtImage [] = new Integer[events.size()];
+		for(int i=0; i<events.size();i++){
+			
+			Events event = events.get(i);
+			datum[i] = event.getEventName();
+			desc[i] = event.getEventDescription();
+			evtImage[i] = R.drawable.event;			   	    
+						
+		}
+		
+		CustomList adapter = new CustomList(this, datum, desc, evtImage);
+		listView = (ListView)findViewById(R.id.listView);
+		listView.setAdapter(adapter);
 
     }
 

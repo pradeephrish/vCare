@@ -7,7 +7,10 @@ import java.util.Map;
 
 import com.asu.dao.DAOManager;
 import com.asu.models.Events;
+
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +23,10 @@ public class EventList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_list);
+		ActionBar actionBar = getActionBar();
+		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 		
 		List<Events> events = new DAOManager().get("0");
 		String datum[] = new String[events.size()];

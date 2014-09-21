@@ -10,7 +10,7 @@
          As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions.
     -->
-
+	
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="fill_parent"
@@ -28,39 +28,40 @@
             android:layout_alignParentStart="true">
 
             <TextView
+                android:id="@+id/txtRespect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Respect"
-                android:id="@+id/textView"
+                android:layout_weight="1.04"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:text="Respect\n+2"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/txtKind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.40"
+                android:gravity="center_horizontal"
                 android:padding="8dp"
-                android:layout_weight="1.40"
-                android:gravity="center_horizontal" />
+                android:text="Kindness \n+1"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/txtSR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="4dp"
+                android:text="Self Reflection \n+3"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Kindness"
-                android:id="@+id/textView2"
-                android:padding="8dp"
-                android:gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Self Reflection"
-                android:id="@+id/textView3"
-                android:padding="8dp"
-                android:gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Compassion"
-                android:id="@+id/textView4"
+                android:text="Compassion \n+3"
+                android:id="@+id/txtN"
                 android:padding="8dp"
                 android:gravity="center_horizontal" />
         </LinearLayout>
@@ -88,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Hi, Name"
+                android:layout_marginTop="15dp"
                 android:id="@+id/txtName"
                 android:layout_weight="0.20" />
         </LinearLayout>
@@ -98,25 +100,17 @@
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayout"
-            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/linearLayout"        
             android:src="@drawable/grp" />
 
         
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/imgRespect"
-            android:layout_marginTop="36dp" >
-
+       
             <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView" />
-        </ScrollView>
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:id="@+id/listView" 
+                android:layout_marginTop="230dp"/>
+   
 
         <LinearLayout
             android:orientation="horizontal"
