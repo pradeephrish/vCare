@@ -33,6 +33,7 @@ public class LoginActivity extends ActionBarActivity {
 		
 		btnRegister = (Button)findViewById(R.id.btnRegister);
 		btnRegister.setOnClickListener(register);
+		
 	}
 
 	@Override
