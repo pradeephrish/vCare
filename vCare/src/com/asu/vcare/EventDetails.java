@@ -38,6 +38,10 @@ public class EventDetails extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_details);
+		ActionBar actionBar = getActionBar();
+		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
@@ -72,12 +76,12 @@ public class EventDetails extends ActionBarActivity implements
 		}
 	}
 
-	public void restoreActionBar() {
+	/*public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -86,7 +90,7 @@ public class EventDetails extends ActionBarActivity implements
 			// if the drawer is not showing. Otherwise, let the drawer
 			// decide what to show in the action bar.
 			getMenuInflater().inflate(R.menu.event_details, menu);
-			restoreActionBar();
+			//restoreActionBar();
 			return true;
 		}
 		return super.onCreateOptionsMenu(menu);

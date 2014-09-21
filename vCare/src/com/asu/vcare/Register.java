@@ -20,10 +20,10 @@ public class Register extends Activity{
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_register);
 			ActionBar actionBar = getActionBar();
-    		//actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#99CCFF")));
-    		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
-    		
-    		actionBar.setLogo(R.drawable.ic_launcher);
+			actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
+			actionBar.setDisplayShowTitleEnabled(false);
+			actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+
 			txtName = (EditText) findViewById(R.id.fname);
 			txtMobNumber = (EditText) findViewById(R.id.phone);
 			txtEmail = (EditText) findViewById(R.id.email);

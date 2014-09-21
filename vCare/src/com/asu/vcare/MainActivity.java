@@ -42,11 +42,13 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActionBar actionBar = getActionBar();
-        		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#99CCFF")));
-        		
-        		actionBar.setLogo(R.drawable.ic_launcher);
-        //Receive Push Notification
+       	
+	ActionBar actionBar = getActionBar();
+	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
+	actionBar.setDisplayShowTitleEnabled(false);
+	actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+
+	 //Receive Push Notification
         PushService.setDefaultPushCallback(this, MainActivity.class);
         
         
