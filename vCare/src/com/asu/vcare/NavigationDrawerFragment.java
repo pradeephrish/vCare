@@ -236,7 +236,11 @@ public class NavigationDrawerFragment extends Fragment {
 			startActivity(i);
 		}
 		if(mCurrentSelectedPosition == 3){
-			Intent i = new Intent(getActivity(), EventList.class);
+			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
+			startActivity(i);
+		}
+		if(mCurrentSelectedPosition == 4){
+			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
 			startActivity(i);
 		}
 	}
