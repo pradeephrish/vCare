@@ -42,17 +42,11 @@ public class DAOManager {
         });
 	 */
 	
-	private DAOManager daoManager = null;  
-	private DAOManager(){
-		
-	}
 	
-	public synchronized DAOManager getInstance(){
-		if(daoManager == null)
-			daoManager =  new DAOManager();
+	public DAOManager(){
 		
-		return daoManager;
 	}
+
 	
 	//userID means mobile Number
 	public User getUserDetails(final String userID){

@@ -65,12 +65,8 @@ public class MainActivity extends ActionBarActivity
         /*ParseObject testObject = new ParseObject("TestHello");
         testObject.put("test", "hello");
         testObject.saveInBackground();*/
-        
-        /*ParseObject gameScore = new ParseObject("GameScore");
-        gameScore.put("score", 1337);
-        gameScore.put("playerName", "Sean Plott");
-        gameScore.put("cheatMode", false);
-        gameScore.saveInBackground();*/
+       
+          
         String lv_arr[]={"Android","iPhone","BlackBerry","AndroidPeople"};
         //dao.getInstance().getUserDetails(userID);
         String[] values = new String[] { "Android List View", 
