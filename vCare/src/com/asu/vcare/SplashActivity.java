@@ -1,5 +1,7 @@
 package com.asu.vcare;
 
+import com.parse.Parse;
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ public class SplashActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setTheme(R.style.splashTheme);
+		Parse.initialize(this, "e0O1wPBh8qdsw5KhWhv5Xyc7D5gpv7gq9mGYosLh", "y8hOkkC4SfAegYxKMSN7eaZdHCNrYi1oW3rB2OY8"); 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		
@@ -48,9 +51,7 @@ public class SplashActivity extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 }

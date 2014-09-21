@@ -37,7 +37,6 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Parse.initialize(this, "e0O1wPBh8qdsw5KhWhv5Xyc7D5gpv7gq9mGYosLh", "y8hOkkC4SfAegYxKMSN7eaZdHCNrYi1oW3rB2OY8");
         setContentView(R.layout.activity_main);
 
         //Receive Push Notification
@@ -58,28 +57,13 @@ public class MainActivity extends ActionBarActivity
         testObject.put("test", "hello");
         testObject.saveInBackground();*/
         
-        ParseObject gameScore = new ParseObject("GameScore");
+        /*ParseObject gameScore = new ParseObject("GameScore");
         gameScore.put("score", 1337);
         gameScore.put("playerName", "Sean Plott");
         gameScore.put("cheatMode", false);
-        gameScore.saveInBackground();
+        gameScore.saveInBackground();*/
         
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
-        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-          public void done(ParseObject object, ParseException e) {
-            if (e == null) {
-              // object will be your game score
-
-            	//i can also udpate here
-            	System.out.println("Player Name is ");
-            	System.out.println(object.get("playerName"));
-            	
-            } else {
-              // something went wrong
-            	System.out.println("Something went wrong");
-            }
-          }
-        });
+        
         
         
     
@@ -97,13 +81,19 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.section_me);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.section_events);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.section_organize);
+                break;
+            case 4:
+                mTitle = getString(R.string.section_share);
+                break;
+            case 5:
+                mTitle = getString(R.string.section_challenge);
                 break;
         }
     }
@@ -135,9 +125,7 @@ public class MainActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+       
         return super.onOptionsItemSelected(item);
     }
 
