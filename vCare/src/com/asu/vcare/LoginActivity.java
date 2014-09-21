@@ -58,7 +58,8 @@ public class LoginActivity extends ActionBarActivity {
 		
 		@Override
 		public void onClick(View v) {
-			
+			Intent i = new Intent(LoginActivity.this, Register.class);
+			startActivity(i);
 			
 		}
 	};
