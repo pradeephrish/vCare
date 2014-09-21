@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import com.asu.models.Events;
@@ -50,10 +51,7 @@ public class CreateOrganization extends Activity {
 		spinner = (Spinner)findViewById(R.id.spinner1);
 		selectedDate = new Date();
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(CreateOrganization.this,
-                android.R.layout.simple_spinner_item,paths);
-        CalendarView myCalendar = (CalendarView) findViewById(R.id.calendarView1);
-
-        myCalendar.setOnDateChangeListener(myCalendarListener);
+        		android.R.layout.simple_spinner_item,paths);
         
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -98,12 +96,17 @@ public class CreateOrganization extends Activity {
 		event.setEventName(((EditText)findViewById(R.id.eventname)).getText().toString());
 		event.setOrganizationID(((Spinner)findViewById(R.id.spinner1)).getSelectedItem().toString());
 		event.setOrganizerID("0");
-		CalendarView cv = (CalendarView)findViewById(R.id.calendarView1);
 		
+		 DatePicker datePicker = (DatePicker) findViewById(R.id.calendarView1);
+
+	        int day = datePicker.getDayOfMonth();
+	        int month = datePicker.getMonth() + 1;
+	        int year = datePicker.getYear();
+	        selectedDate = new Date(year, month, day);
 		event.setStartDate(selectedDate);
 		event.setEndDate(selectedDate);
 		
-		new DAOManager().createEvent(event, "0");
+		new DAOManager().createEvent(event, CurrentSession.getUser().getMobileNumber());
 		Intent in = new Intent(CreateOrganization.this, MainActivity.class);
 		startActivity(in);
 		}
@@ -130,15 +133,5 @@ public class CreateOrganization extends Activity {
 		
 	}*/
 
-	 OnDateChangeListener myCalendarListener = new OnDateChangeListener(){
-
-	        public void onSelectedDayChange(CalendarView view, int year, int month, int day){
-
-	           // add one because month starts at 0
-	           month = month + 1;
-	           // output to log cat **not sure how to format year to two places here**
-	           selectedDate = new Date(year,month,day);
-	        }
-	   };
-
+	
 }

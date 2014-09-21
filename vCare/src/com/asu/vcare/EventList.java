@@ -1,21 +1,20 @@
 package com.asu.vcare;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import com.asu.dao.DAOManager;
-import com.asu.models.Events;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
+
+import com.asu.models.Events;
+import com.asu.session.CurrentSession;
 
 public class EventList extends Activity {
 
@@ -28,7 +27,7 @@ public class EventList extends Activity {
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 		
-		List<Events> events = new DAOManager().get("0");
+		List<Events> events = CurrentSession.getListOfEvens();
 		String datum[] = new String[events.size()];
 		String desc[] = new String[events.size()];
 		Integer evtImage [] = new Integer[events.size()];
@@ -42,8 +41,23 @@ public class EventList extends Activity {
 		}
 		
 		CustomList adapter = new CustomList(this, datum, desc, evtImage);
-		ListView lv = (ListView)findViewById(R.id.eventList);
+		
+		final ListView lv = (ListView)findViewById(R.id.eventList);
+		
 		lv.setAdapter(adapter);
+		lv.setClickable(true);
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+		        @Override
+		        public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+		        	
+		            Object o = lv.getItemAtPosition(position);
+		            String str=(String)o;//As you are using Default String Adapter
+		            Intent i = new Intent(EventList.this, EventDetail.class);
+		            i.putExtra("pos", Integer.toString(position));
+		            startActivity(i);
+		        }
+		    });
 		
 	}
 
