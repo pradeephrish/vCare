@@ -230,7 +230,7 @@ public class NavigationDrawerFragment extends Fragment {
 			mCallbacks.onNavigationDrawerItemSelected(position);
 		}
 		if(mCurrentSelectedPosition == 1){
-			String userID = CurrentSession.getUser().getMobileNumber();
+			String userID = null; //null for all the events
 			new EventFetchAsyncTask(getActivity()).execute(userID);
 		}
 		if(mCurrentSelectedPosition == 2){
@@ -238,9 +238,18 @@ public class NavigationDrawerFragment extends Fragment {
 			startActivity(i);
 		}
 		if(mCurrentSelectedPosition == 3){
-			/*Intent i = new Intent(getActivity(), EventList.class);
-			startActivity(i);*/
+			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
+			startActivity(i);
 		}
+		if(mCurrentSelectedPosition == 4){
+			Intent i = new Intent(getActivity(), ShareButtonActivity.class);
+			startActivity(i);
+		}
+		if(mCurrentSelectedPosition == 5){
+			Intent i = new Intent(getActivity(), Settings.class);
+			startActivity(i);
+		}
+		
 	}
 
 	@Override

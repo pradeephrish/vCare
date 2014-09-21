@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.asu.dao.DAOManager;
 import com.asu.models.Events;
+import com.asu.session.CurrentSession;
 import com.parse.PushService;
 
 
@@ -49,8 +50,8 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       	
-       String name =  getIntent().getExtras().getString("name");
+     // getIntent().getExtras().getString("name");
+       String name = CurrentSession.getUser().getName();
        TextView textView = (TextView) findViewById(R.id.txtName); 
        textView.setText("Hi, "+name);
         
@@ -88,7 +89,7 @@ public class MainActivity extends ActionBarActivity
 		});
        
 		
-        List<Events> events = new DAOManager().get("0");
+        List<Events> events = new DAOManager().get(CurrentSession.getUser().getMobileNumber());
 		String datum[] = new String[events.size()];
 		String desc[] = new String[events.size()];
 		Integer evtImage [] = new Integer[events.size()];
@@ -118,20 +119,23 @@ public class MainActivity extends ActionBarActivity
 
     public void onSectionAttached(int number) {
         switch (number) {
-            case 1:
+            case 0:
                 mTitle = getString(R.string.section_me);
                 break;
-            case 2:
+            case 1:
                 mTitle = getString(R.string.section_events);
                 break;
-            case 3:
+            case 2:
                 mTitle = getString(R.string.section_organize);
                 break;
-            case 4:
+            case 3:
                 mTitle = getString(R.string.section_share);
                 break;
+            case 4:
+            	mTitle = getString(R.string.section_challenge);
+                break;
             case 5:
-                mTitle = getString(R.string.section_challenge);
+                mTitle = getString(R.string.section_settings);
                 break;
         }
     }

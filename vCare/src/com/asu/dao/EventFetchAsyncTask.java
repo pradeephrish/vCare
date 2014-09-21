@@ -19,6 +19,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+
+//Fetches events for particular USer or All Events
 public class EventFetchAsyncTask extends AsyncTask<String, Void, List<Events>>{
 
 	private Context context;
@@ -42,10 +44,14 @@ public class EventFetchAsyncTask extends AsyncTask<String, Void, List<Events>>{
 	protected List<Events> doInBackground(String... params) {
 		// TODO Auto-generated method stub
 		String userID = params[0];
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("EventStore");
+		 
+		//if userID is not passed, assume , method is called for all Events
+		if(userID != null ){
+			query.whereEqualTo("organizerID", userID);	
+		}
 		
 		List<Events> eventStore = new ArrayList<Events>();
-		 ParseQuery<ParseObject> query = ParseQuery.getQuery("EventStore");
-		 query.whereEqualTo("organizerID", userID);
 		 List<ParseObject> eventParseObject;
 		try {
 			eventParseObject = query.find();

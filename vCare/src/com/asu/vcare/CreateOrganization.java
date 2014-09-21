@@ -92,10 +92,10 @@ public class CreateOrganization extends Activity {
 		public void onClick(View v) {
 		Events event = new Events();
 		event.setAddress(((EditText)findViewById(R.id.address)).getText().toString());
-		event.setEventDescription(((EditText)findViewById(R.id.desc)).getText().toString());
+		event.setEventDescription(((EditText)findViewById(R.id.eventdesc)).getText().toString());
 		event.setEventName(((EditText)findViewById(R.id.eventname)).getText().toString());
 		event.setOrganizationID(((Spinner)findViewById(R.id.spinner1)).getSelectedItem().toString());
-		event.setOrganizerID("0");
+		event.setOrganizerID(CurrentSession.getUser().getMobileNumber());
 		
 		 DatePicker datePicker = (DatePicker) findViewById(R.id.calendarView1);
 

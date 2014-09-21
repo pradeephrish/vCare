@@ -52,6 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:background="@drawable/rounded"
         android:text="Volunteer" />
 
     <ImageView

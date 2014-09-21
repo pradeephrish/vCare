@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EventDetails"
+            android:name=".EventDetail"
             android:label="@string/title_activity_event_details"
             android:screenOrientation="portrait" >
         </activity>
