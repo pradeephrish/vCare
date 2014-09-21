@@ -72,7 +72,7 @@
 		android:layout_marginRight="10dp"
 		android:layout_below="@+id/dialogTitle"
 	/>
-	<Button 
+    <Button 
 		android:id="@+id/update"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
@@ -85,23 +85,25 @@
 		android:layout_marginRight="10dp"
 		android:layout_below="@+id/editTxt"
 	/>
-    
 	<RelativeLayout 
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 
     android:layout_alignParentBottom="true"
-    >    
-    <Button 
-		android:id="@+id/sharebutton"
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:layout_centerInParent="true"
-		android:layout_margin="20dp"
-		android:background="#147af8"
-		android:textColor="#ffffff"
-		android:padding="5dp"
-		android:textSize="12sp"
-	/>     
+    >     
 </RelativeLayout>
+
+	<Button
+	    android:id="@+id/sharebutton"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_centerVertical="true"
+	    android:layout_margin="20dp"
+	    android:background="#147af8"
+	    android:padding="5dp"
+	    android:text="Share"
+	    android:textColor="#ffffff"
+	    android:textSize="12sp" />
+
 </RelativeLayout>
