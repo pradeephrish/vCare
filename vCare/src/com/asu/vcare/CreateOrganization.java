@@ -16,7 +16,7 @@ public class CreateOrganization extends Activity {
 	private EditText txtAddress; 
 	private Button btnCreate;
 	private Spinner spinner;
-    private static final String[]paths = {"item 1", "item 2", "item 3"};
+    private static final String[]paths = {"Select an Organisation","Teach for America", "Kids of America", "Whole Life Foundation","Central AZ Shelter Services"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

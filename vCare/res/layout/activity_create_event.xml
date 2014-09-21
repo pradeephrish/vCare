@@ -24,15 +24,6 @@
         android:hint="Contact Number"
         android:inputType="phone" />
 
-    <DatePicker
-        android:id="@+id/calendarView1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@+id/CreateEvent"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/mailid"
-        android:calendarViewShown="false" />
-
     <EditText
         android:id="@+id/mailid"
         android:layout_width="wrap_content"
@@ -44,15 +35,7 @@
         android:hint="Email ID"
         android:inputType="textEmailAddress" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="Select an Organization"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
 
     <EditText
         android:id="@+id/fullname"
@@ -73,8 +56,19 @@
         android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="19dp">
+        android:layout_alignLeft="@+id/address"
+        android:layout_marginTop="19dp" >
+
     	</Spinner>
+
+    <DatePicker
+        android:id="@+id/calendarView1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/CreateEvent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mailid"
+        android:calendarViewShown="false" />
 
     <Button
         android:id="@+id/CreateEvent"
