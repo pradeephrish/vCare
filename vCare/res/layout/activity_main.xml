@@ -128,6 +128,7 @@
                 android:id="@+id/button"
                 android:layout_alignBottom="@+id/linearLayout3"
                 android:layout_alignParentLeft="true"
+                android:background="#DBA901"
                 android:layout_alignParentStart="true" />
         </LinearLayout>
 
