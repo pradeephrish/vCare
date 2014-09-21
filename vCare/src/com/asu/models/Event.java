@@ -6,9 +6,10 @@ public class Event {
 	private String eventName;
 	private String eventDescription;
 	private String organizationID;
+	private String address;
 	private Date startDate;
 	private Date endDate;
-	private String address;
+	
 	public String getEventName() {
 		return eventName;
 	}
