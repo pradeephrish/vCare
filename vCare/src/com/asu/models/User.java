@@ -2,7 +2,7 @@ package com.asu.models;
 
 public class User {
 	private String name;
-	private String mobileNumber;
+	private String mobileNumber; //primary key
 	private String emailID;
 	private String zipCode;
 	private Integer badgeRespect;

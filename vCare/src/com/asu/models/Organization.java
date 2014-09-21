@@ -5,6 +5,9 @@ public class Organization {
 	private String description;
 	private String address;
 	private String contactNumber;
+	private String emailID;
+	
+	
 	public String getOrganizationName() {
 		return organizationName;
 	}
@@ -28,5 +31,11 @@ public class Organization {
 	}
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
 	}
 }

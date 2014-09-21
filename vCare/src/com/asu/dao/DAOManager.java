@@ -40,7 +40,6 @@ public class DAOManager {
         });
 	 */
 	
-	
 	private DAOManager daoManager = null;  
 	private DAOManager(){
 		
@@ -53,17 +52,57 @@ public class DAOManager {
 		return daoManager;
 	}
 	
-	
-	public User getUserDetails(String userID){
-		
-		return null;
+	//userID means mobile Number
+	public User getUserDetails(final String userID){
+		 User user = new User();
+		 ParseQuery<ParseObject> query = ParseQuery.getQuery("UserStore");
+		 query.whereEqualTo("mobileNumber", userID);
+		 List<ParseObject> userList;
+		try {
+			userList = query.find();
+			if(userList.size() > 0 ){ //should be great than 0
+				 //should be equal to one
+	                Log.d("user", "Retrieved " + userList.size() + " users");
+	                user.setName(userList.get(0).getString("name"));
+	                user.setMobileNumber(userID);
+	                user.setZipCode(userList.get(0).getString("zipCode"));
+	                user.setEmailID(userList.get(0).getString("emailID"));
+	                user.setBadgeRespect(userList.get(0).getInt("badgeRespect"));
+	                user.setBadgeKindness(userList.get(0).getInt("badgeRespect"));
+	                user.setBadgeCompassion(userList.get(0).getInt("badgeCompassion"));
+	                user.setBadgeSelfReflection(userList.get(0).getInt("badgeSelfReflection"));
+			 }
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
+		/*
+	      query.findInBackground(new FindCallback<ParseObject>() {
+	            public void done(List<ParseObject> userList, ParseException e) {
+	                if (e == null) {
+	                	User user = new User();
+	                    Log.d("user", "Retrieved " + userList.size() + " users");
+	                    user.setName(userList.get(0).getString("name"));
+	                    user.setMobileNumber(userID);
+	                    user.setZipCode(userList.get(0).getString("zipCode"));
+	                    user.setEmailID(userList.get(0).getString("emailID"));
+	                    user.setBadgeRespect(userList.get(0).getInt("badgeRespect"));
+	                    user.setBadgeKindness(userList.get(0).getInt("badgeRespect"));
+	                    user.setBadgeCompassion(userList.get(0).getInt("badgeCompassion"));
+	                    user.setBadgeSelfReflection(userList.get(0).getInt("badgeSelfReflection"));     
+	                } else {
+	                    Log.d("score", "Error: " + e.getMessage());
+	                }
+	            }
+	        });*/
 	}
 	
 	public Organization getOrganizationDetails(String organizationName){
 		return null;
 	}
 	
-	public  List<Event> getEventDetails(String userID){
+	public  List<Event> 	get(String userID){
 		return null;
 	}
 	
