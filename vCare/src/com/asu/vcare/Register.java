@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ public class Register extends Activity{
 			setContentView(R.layout.activity_register);
 			ActionBar actionBar = getActionBar();
     		//actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#99CCFF")));
-    		actionBar.setBackgroundDrawable(R.drawable.Banner);
+    		actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.banner));
     		
     		actionBar.setLogo(R.drawable.ic_launcher);
 			txtName = (EditText) findViewById(R.id.fname);

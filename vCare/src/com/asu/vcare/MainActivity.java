@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity
         gameScore.put("cheatMode", false);
         gameScore.saveInBackground();*/
         String lv_arr[]={"Android","iPhone","BlackBerry","AndroidPeople"};
-        
+        //dao.getInstance().getUserDetails(userID);
         String[] values = new String[] { "Android List View", 
                 "Adapter implementation",
                 "Simple List View In Android",
